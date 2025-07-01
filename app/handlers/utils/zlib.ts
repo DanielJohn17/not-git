@@ -1,4 +1,4 @@
-import { inflateSync } from "zlib";
+import { inflateSync, deflateSync } from "zlib";
 import { handleError } from "./handleError";
 
 const decompressObject = (data: Buffer) => {
@@ -9,13 +9,17 @@ const decompressObject = (data: Buffer) => {
 
     return decompressed.toString("utf-8");
   } catch (error: unknown) {
-    /* throw new Error( */
-    /*   error instanceof Error */
-    /*     ? error.message */
-    /*     : "Unknown error during decompression", */
-    /* ); */
     handleError(error);
   }
 };
 
-export { decompressObject };
+const compressObject = (data: string) => {
+  try {
+    const compressed = deflateSync(data);
+    return compressed;
+  } catch (error: unknown) {
+    handleError(error);
+  }
+};
+
+export { decompressObject, compressObject };

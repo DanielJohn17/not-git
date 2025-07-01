@@ -1,4 +1,5 @@
 import { HandleCatFile } from "./handlers/catFile";
+import { HandleHashObject } from "./handlers/hashObject";
 import { HandleInit } from "./handlers/init";
 
 const args = process.argv.slice(2);
@@ -16,6 +17,9 @@ switch (command) {
     break;
   case Commands.CatFile:
     HandleCatFile(args.slice(1));
+    break;
+  case Commands.HashObject:
+    HandleHashObject(args.slice(1));
     break;
   default:
     console.error("Unknown command.");
