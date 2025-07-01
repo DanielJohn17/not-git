@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { handleError } from "./utils/handleError";
+import { handleError } from "@/utils/handleError";
 import { createHash } from "crypto";
-import { compressObject } from "./utils/zlib";
+import { compressObject } from "@/utils/zlib";
 
 export const HandleHashObject = (args: string[]) => {
   if (args.length < 2) {

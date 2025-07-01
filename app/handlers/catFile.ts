@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "fs";
-import { handleError } from "./utils/handleError";
-import { decompressObject } from "./utils/zlib";
+import { handleError } from "@/utils/handleError";
+import { decompressObject } from "@/utils/zlib";
 
 export const HandleCatFile = (args: string[]) => {
   if (args.length < 2) {
